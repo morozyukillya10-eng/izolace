@@ -1,7 +1,13 @@
 /* SILENTUM° — interactivity */
 
-// --- Loader ---
+// --- Loader (only on first visit per session) ---
 (function () {
+  // If already shown this session, skip loader entirely
+  if (sessionStorage.getItem('loaderShown')) {
+    document.body.classList.add('loaded');
+    return;
+  }
+
   const loader = document.createElement('div');
   loader.id = 'loader';
   loader.className = 'loader';
@@ -24,6 +30,7 @@
       loader.classList.add('out');
       loader.addEventListener('transitionend', () => loader.remove(), { once: true });
       document.body.classList.add('loaded');
+      sessionStorage.setItem('loaderShown', '1');
     }, wait);
   };
 
@@ -85,24 +92,10 @@ if (counters.length) {
   counters.forEach((el) => cio.observe(el));
 }
 
-// --- Hero giant text scroll-scale + full-width fit ---
+// --- Hero giant text scroll-scale ---
 const heroWrap = document.getElementById('heroWrap');
 const heroGiant = document.getElementById('heroGiant');
 if (heroWrap && heroGiant) {
-  // Fit each word-span to the full container width
-  const heroSpans = [...heroGiant.querySelectorAll(':scope > span')];
-  const fitHeroText = () => {
-    const avail = heroGiant.clientWidth;
-    if (avail < 1) return;
-    heroSpans.forEach((span) => {
-      span.style.fontSize = '20px';
-      const w = span.scrollWidth;
-      if (w > 0) span.style.fontSize = Math.floor((avail / w) * 20 * 0.97) + 'px';
-    });
-  };
-  document.fonts.ready.then(fitHeroText);
-  window.addEventListener('resize', fitHeroText);
-
   const onHeroScroll = () => {
     const rect = heroWrap.getBoundingClientRect();
     const total = heroWrap.offsetHeight - window.innerHeight;
