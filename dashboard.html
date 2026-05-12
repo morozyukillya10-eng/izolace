@@ -1,0 +1,1242 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard — SILENTUM°</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&family=Geist:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* ============================================================
+     DASHBOARD – SILENTUM°
+     ============================================================ */
+  :root {
+    --side-w: 248px;
+    --top-h: 76px;
+    --card: #FFFFFF;
+    --card-border: rgba(10, 10, 10, 0.07);
+    --card-radius: 18px;
+    --pill-bg: #F4F2EC;
+  }
+
+  html, body { background: #F6F4EE; overflow-x: hidden; }
+  body {
+    min-height: 100vh;
+  }
+
+  .app {
+    display: grid;
+    grid-template-columns: var(--side-w) 1fr;
+    min-height: 100vh;
+  }
+
+  /* ------------ SIDEBAR ------------ */
+  .side {
+    background: #FFFFFF;
+    border-right: 1px solid var(--card-border);
+    padding: 22px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  .side__logo {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 2px;
+    font-family: var(--f-display);
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    color: var(--fg);
+    padding: 6px 8px 14px;
+    border-bottom: 1px solid var(--card-border);
+  }
+  .side__logo .dot { color: var(--red); }
+
+  .side__group { display: flex; flex-direction: column; gap: 2px; }
+  .side__label {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    color: var(--fg-dim);
+    text-transform: uppercase;
+    padding: 4px 10px 8px;
+  }
+
+  .side__item {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: 14.5px;
+    color: #444;
+    transition: background 0.15s, color 0.15s;
+    position: relative;
+  }
+  .side__item:hover { background: #F6F4EE; color: var(--fg); }
+  .side__item.active {
+    background: var(--red);
+    color: #fff;
+    font-weight: 500;
+  }
+  .side__item.active .ico { color: #fff; }
+  .side__item .ico {
+    width: 18px; height: 18px;
+    color: #666;
+    flex-shrink: 0;
+  }
+  .side__item .badge {
+    margin-left: auto;
+    background: var(--blue);
+    color: #fff;
+    font-family: var(--f-mono);
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 999px;
+    letter-spacing: 0;
+  }
+  .side__item.active .badge { background: rgba(255,255,255,0.25); }
+
+  .side__footer-card {
+    margin-top: auto;
+    background: #0A0A0A;
+    color: #fff;
+    border-radius: 16px;
+    padding: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .side__footer-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 70% 110%, rgba(220,38,38,0.4), transparent 60%);
+    pointer-events: none;
+  }
+  .side__footer-card h4 {
+    font-family: var(--f-display);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.15;
+    color: #fff;
+    position: relative;
+    margin-bottom: 4px;
+  }
+  .side__footer-card p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .side__footer-card a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff;
+    color: #0A0A0A;
+    font-size: 12.5px;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 999px;
+    position: relative;
+  }
+
+  /* ------------ TOP BAR ------------ */
+  .main { display: flex; flex-direction: column; min-width: 0; }
+  .topbar {
+    height: var(--top-h);
+    background: #fff;
+    border-bottom: 1px solid var(--card-border);
+    display: flex;
+    align-items: center;
+    padding: 0 32px;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .search {
+    flex: 1;
+    max-width: 540px;
+    background: #F6F4EE;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    height: 42px;
+    gap: 10px;
+  }
+  .search input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    font: inherit;
+    font-size: 14px;
+    color: var(--fg);
+  }
+  .search input::placeholder { color: var(--fg-dim); }
+  .search .kbd {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    color: var(--fg-muted);
+    background: #fff;
+    padding: 3px 8px;
+    border-radius: 6px;
+    border: 1px solid var(--card-border);
+  }
+  .icon-btn {
+    width: 42px; height: 42px;
+    border-radius: 999px;
+    border: 1px solid var(--card-border);
+    background: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--fg-2);
+    position: relative;
+    transition: background 0.15s;
+  }
+  .icon-btn:hover { background: #F6F4EE; }
+  .icon-btn .dot-red {
+    position: absolute; top: 9px; right: 11px;
+    width: 7px; height: 7px;
+    background: var(--red); border-radius: 999px;
+    border: 2px solid #fff;
+  }
+  .user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 8px;
+  }
+  .user__avatar {
+    width: 42px; height: 42px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #DC2626, #1E3A8A);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--f-display);
+    font-weight: 500;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .user__meta { line-height: 1.2; }
+  .user__name { font-size: 14px; font-weight: 500; color: var(--fg); }
+  .user__email { font-size: 12px; color: var(--fg-muted); }
+
+  /* ------------ CONTENT ------------ */
+  .content {
+    padding: 28px 32px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .page-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .page-head h1 {
+    font-size: 38px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 6px;
+  }
+  .page-head p { color: var(--fg-muted); font-size: 14.5px; }
+  .page-head__actions { display: flex; gap: 10px; }
+  .btn-primary,
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 44px;
+    padding: 0 20px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: transform 0.15s, background 0.15s;
+  }
+  .btn-primary {
+    background: var(--red);
+    color: #fff;
+  }
+  .btn-primary:hover { background: var(--red-deep); transform: translateY(-1px); }
+  .btn-ghost {
+    background: #fff;
+    color: var(--fg);
+    border: 1px solid var(--card-border);
+  }
+  .btn-ghost:hover { background: #F6F4EE; }
+
+  /* Cards grid */
+  .grid {
+    display: grid;
+    gap: 18px;
+  }
+  .grid--stats { grid-template-columns: repeat(4, 1fr); }
+  .grid--row2 { grid-template-columns: 1.4fr 1fr 1fr; }
+  .grid--row3 { grid-template-columns: 1.3fr 1fr 0.9fr; }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-radius);
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 0;
+  }
+  .card--accent {
+    background: var(--red);
+    color: #fff;
+    border-color: var(--red);
+  }
+  .card--dark {
+    background: #0A0A0A;
+    color: #fff;
+    border-color: #0A0A0A;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stat__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .stat__title {
+    font-size: 14.5px;
+    color: var(--fg-2);
+    font-weight: 500;
+  }
+  .card--accent .stat__title { color: rgba(255,255,255,0.92); }
+  .stat__icon {
+    width: 32px; height: 32px;
+    border-radius: 999px;
+    background: #F6F4EE;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--fg-2);
+  }
+  .card--accent .stat__icon { background: rgba(255,255,255,0.18); color: #fff; }
+  .stat__value {
+    font-family: var(--f-display);
+    font-size: 56px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+  .stat__delta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--fg-muted);
+    background: #F6F4EE;
+    padding: 5px 10px;
+    border-radius: 999px;
+    align-self: flex-start;
+  }
+  .stat__delta .arrow-up { color: #16A34A; font-weight: 600; }
+  .card--accent .stat__delta {
+    background: rgba(255,255,255,0.18);
+    color: rgba(255,255,255,0.95);
+  }
+  .card--accent .stat__delta .arrow-up { color: #fff; }
+
+  /* Chart card */
+  .chart-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .chart-head h3 {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  .seg {
+    display: inline-flex;
+    background: #F6F4EE;
+    border-radius: 999px;
+    padding: 3px;
+    font-size: 12.5px;
+  }
+  .seg button {
+    padding: 6px 14px;
+    border-radius: 999px;
+    color: var(--fg-muted);
+  }
+  .seg button.on {
+    background: #fff;
+    color: var(--fg);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  }
+  .bars {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 14px;
+    height: 200px;
+    align-items: end;
+    padding-top: 12px;
+  }
+  .bar { position: relative; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 8px; }
+  .bar__fill {
+    width: 100%;
+    border-radius: 999px 999px 4px 4px;
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgba(10,10,10,0.06) 0 4px,
+      transparent 4px 9px
+    );
+    background-color: #F2F0EA;
+    border: 1px solid rgba(10,10,10,0.06);
+    min-height: 8px;
+  }
+  .bar--on .bar__fill {
+    background-image: none;
+    background-color: var(--red);
+    border-color: var(--red);
+    box-shadow: 0 4px 14px rgba(220,38,38,0.25);
+  }
+  .bar--mid .bar__fill {
+    background-image: none;
+    background-color: #1E3A8A;
+    border-color: #1E3A8A;
+  }
+  .bar__label {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    color: var(--fg-muted);
+    letter-spacing: 0.02em;
+  }
+  .bar__pop {
+    position: absolute;
+    top: -28px;
+    background: #fff;
+    border: 1px solid var(--card-border);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  }
+
+  /* Reminder card */
+  .reminder__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .reminder__head h3 {
+    font-size: 16px;
+    color: var(--fg-muted);
+    font-weight: 500;
+  }
+  .reminder__title {
+    font-family: var(--f-display);
+    font-size: 26px;
+    line-height: 1.05;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+  .reminder__when {
+    font-size: 13px;
+    color: var(--fg-muted);
+  }
+  .reminder__cta {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #0A0A0A;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    width: fit-content;
+  }
+  .reminder__cta .play {
+    width: 18px; height: 18px;
+    background: var(--red); border-radius: 999px;
+    display: inline-flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 8px;
+  }
+
+  /* Project list */
+  .proj__head {
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .proj__head h3 { font-size: 16px; font-weight: 500; }
+  .proj__head .add {
+    background: var(--red); color: #fff;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    display: inline-flex; align-items: center; gap: 4px;
+  }
+  .proj__list { display: flex; flex-direction: column; gap: 12px; }
+  .proj__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .proj__icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .proj__body { line-height: 1.25; min-width: 0; flex: 1; }
+  .proj__name { font-size: 14px; font-weight: 500; }
+  .proj__date {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    color: var(--fg-muted);
+  }
+
+  /* Team table */
+  .team__head {
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .team__head h3 { font-size: 18px; font-weight: 500; }
+  .team__head .add {
+    border: 1px solid var(--card-border);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    color: var(--fg);
+    display: inline-flex; align-items: center; gap: 4px;
+    background: #fff;
+  }
+  .team__list { display: flex; flex-direction: column; }
+  .team__row {
+    display: grid;
+    grid-template-columns: 1.4fr 2fr auto;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-top: 1px solid var(--card-border);
+  }
+  .team__row:first-child { border-top: none; padding-top: 4px; }
+  .team__person {
+    display: flex; align-items: center; gap: 10px; min-width: 0;
+  }
+  .team__avatar {
+    width: 36px; height: 36px;
+    border-radius: 999px;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+  .team__name { font-size: 14px; font-weight: 500; }
+  .team__task { font-size: 13px; color: var(--fg-muted); }
+  .team__task strong { color: var(--fg); font-weight: 500; }
+  .pill {
+    font-size: 11.5px;
+    padding: 5px 11px;
+    border-radius: 999px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .pill--done { background: #DCFCE7; color: #166534; }
+  .pill--progress { background: #FEE2E2; color: var(--red-deep); }
+  .pill--pending { background: #FEF3C7; color: #92400E; }
+  .pill--review { background: #DBEAFE; color: var(--blue); }
+
+  /* Donut */
+  .donut-card { align-items: center; }
+  .donut-card h3 { font-size: 18px; font-weight: 500; align-self: flex-start; }
+  .donut {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 6px auto 0;
+  }
+  .donut svg { transform: rotate(-90deg); }
+  .donut__center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .donut__value {
+    font-family: var(--f-display);
+    font-size: 44px;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .donut__label {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    color: var(--fg-muted);
+    margin-top: 4px;
+    letter-spacing: 0.02em;
+  }
+  .donut-legend {
+    display: flex;
+    gap: 14px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--fg-muted);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .donut-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .donut-legend i {
+    width: 8px; height: 8px;
+    border-radius: 999px;
+    background: #ddd;
+  }
+
+  /* Timer */
+  .timer-card {
+    background: #0A0A0A;
+    color: #fff;
+    border: none;
+    position: relative;
+    overflow: hidden;
+  }
+  .timer-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 80% 30%, rgba(220,38,38,0.3), transparent 50%),
+      repeating-radial-gradient(circle at 100% 100%, rgba(255,255,255,0.04) 0 1px, transparent 1px 22px);
+  }
+  .timer-card > * { position: relative; }
+  .timer-card h3 {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .timer__value {
+    font-family: var(--f-display);
+    font-size: 56px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+  }
+  .timer__sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    margin-top: -4px;
+  }
+  .timer__ctrls {
+    display: flex; gap: 10px;
+    margin-top: auto;
+  }
+  .timer__btn {
+    width: 44px; height: 44px;
+    border-radius: 999px;
+    background: #fff;
+    color: #0A0A0A;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .timer__btn--stop { background: var(--red); color: #fff; }
+
+  /* Leads table (bottom) */
+  .leads-card { padding: 0; overflow: hidden; }
+  .leads__head {
+    padding: 22px 24px 14px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid var(--card-border);
+  }
+  .leads__head h3 { font-size: 18px; font-weight: 500; }
+  .leads__filters { display: flex; gap: 6px; font-size: 12.5px; }
+  .leads__filters button {
+    padding: 6px 12px;
+    border-radius: 999px;
+    color: var(--fg-muted);
+  }
+  .leads__filters button.on {
+    background: #0A0A0A; color: #fff;
+  }
+  .leads-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  .leads-table thead th {
+    text-align: left;
+    padding: 12px 24px;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--fg-dim);
+    font-weight: 500;
+    background: #FAF8F2;
+  }
+  .leads-table tbody td {
+    padding: 14px 24px;
+    border-top: 1px solid var(--card-border);
+    vertical-align: middle;
+  }
+  .leads-table tbody tr:hover { background: #FAF8F2; }
+  .leads-table .cust { display: flex; align-items: center; gap: 10px; }
+  .leads-table .cust__avatar {
+    width: 32px; height: 32px; border-radius: 999px;
+    color: #fff; display: inline-flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 500;
+  }
+  .leads-table .cust__name { font-weight: 500; color: var(--fg); }
+  .leads-table .cust__co { font-size: 12px; color: var(--fg-muted); }
+  .leads-table .actions { display: flex; gap: 6px; justify-content: flex-end; }
+  .leads-table .actions button {
+    width: 30px; height: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--card-border);
+    background: #fff;
+    color: var(--fg-2);
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .leads-table .actions button:hover { background: var(--red); color: #fff; border-color: var(--red); }
+
+  /* Mini SVG icons */
+  .ico { width: 18px; height: 18px; stroke-width: 1.6; stroke: currentColor; fill: none; }
+
+  @media (max-width: 1200px) {
+    .grid--stats { grid-template-columns: repeat(2, 1fr); }
+    .grid--row2, .grid--row3 { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 900px) {
+    .app { grid-template-columns: 1fr; }
+    .side { display: none; }
+    .grid--stats, .grid--row2, .grid--row3 { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="side">
+    <a href="index.html" class="side__logo">SILENTUM<span class="dot">°</span></a>
+
+    <div class="side__group">
+      <div class="side__label">Menu</div>
+      <a href="#" class="side__item active">
+        <svg class="ico" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        Přehled
+      </a>
+      <a href="#" class="side__item">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+        Poptávky
+        <span class="badge">8</span>
+      </a>
+      <a href="#" class="side__item">
+        <svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M8 5v14"/></svg>
+        Produkty
+      </a>
+      <a href="#" class="side__item">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M3 7h18l-2 13H5L3 7z"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg>
+        Realizace
+      </a>
+      <a href="#" class="side__item">
+        <svg class="ico" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>
+        Galerie
+      </a>
+      <a href="#" class="side__item">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-7.6-4.7L3 21l1.7-1.9A8.5 8.5 0 1 1 21 11.5z"/></svg>
+        Reference
+      </a>
+    </div>
+
+    <div class="side__group">
+      <div class="side__label">Obecné</div>
+      <a href="#" class="side__item">
+        <svg class="ico" viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><path d="M2 21a7 7 0 0 1 14 0"/><circle cx="17" cy="9" r="2"/><path d="M22 21a4 4 0 0 0-7-2.6"/></svg>
+        Tým
+      </a>
+      <a href="#" class="side__item">
+        <svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+        Nastavení
+      </a>
+      <a href="#" class="side__item">
+        <svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+        Nápověda
+      </a>
+      <a href="index.html" class="side__item">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></svg>
+        Odhlásit
+      </a>
+    </div>
+
+    <div class="side__footer-card">
+      <h4>Měsíční report</h4>
+      <p>Stáhněte si přehled za listopad 2026 v PDF.</p>
+      <a href="#"><svg class="ico" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M12 3v14m0 0l-5-5m5 5l5-5M5 21h14"/></svg> Stáhnout</a>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="main">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="search">
+        <svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="text" placeholder="Hledat zakázku, produkt, klienta…">
+        <span class="kbd">⌘ K</span>
+      </div>
+      <button class="icon-btn" aria-label="Zprávy">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="Oznámení">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+        <span class="dot-red"></span>
+      </button>
+      <div class="user">
+        <div class="user__avatar">JK</div>
+        <div class="user__meta">
+          <div class="user__name">Jan Kovář</div>
+          <div class="user__email">admin@silentum.cz</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <div class="content">
+
+      <!-- Page head -->
+      <div class="page-head">
+        <div>
+          <h1>Přehled</h1>
+          <p>Spravujte zakázky, produkty a obsah webu z jednoho místa.</p>
+        </div>
+        <div class="page-head__actions">
+          <button class="btn-primary">
+            <svg class="ico" viewBox="0 0 24 24" style="width:16px;height:16px;"><path d="M12 5v14M5 12h14"/></svg>
+            Nová zakázka
+          </button>
+          <button class="btn-ghost">
+            <svg class="ico" viewBox="0 0 24 24" style="width:16px;height:16px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Export CSV
+          </button>
+        </div>
+      </div>
+
+      <!-- STATS -->
+      <div class="grid grid--stats">
+        <div class="card card--accent">
+          <div class="stat__head">
+            <div class="stat__title">Aktivní zakázky</div>
+            <span class="stat__icon">
+              <svg class="ico" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+            </span>
+          </div>
+          <div class="stat__value">24</div>
+          <div class="stat__delta"><span class="arrow-up">↗</span> +18 % oproti říjnu</div>
+        </div>
+
+        <div class="card">
+          <div class="stat__head">
+            <div class="stat__title">Dokončené</div>
+            <span class="stat__icon">
+              <svg class="ico" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+            </span>
+          </div>
+          <div class="stat__value">187</div>
+          <div class="stat__delta"><span class="arrow-up">↗</span> +6 % oproti říjnu</div>
+        </div>
+
+        <div class="card">
+          <div class="stat__head">
+            <div class="stat__title">Probíhající</div>
+            <span class="stat__icon">
+              <svg class="ico" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+            </span>
+          </div>
+          <div class="stat__value">12</div>
+          <div class="stat__delta"><span class="arrow-up">↗</span> +2 oproti říjnu</div>
+        </div>
+
+        <div class="card">
+          <div class="stat__head">
+            <div class="stat__title">Čekající poptávky</div>
+            <span class="stat__icon">
+              <svg class="ico" viewBox="0 0 24 24" style="width:14px;height:14px;"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </span>
+          </div>
+          <div class="stat__value">8</div>
+          <div class="stat__delta">K odeslání nabídky</div>
+        </div>
+      </div>
+
+      <!-- ROW 2 -->
+      <div class="grid grid--row2">
+        <!-- Chart -->
+        <div class="card">
+          <div class="chart-head">
+            <h3>Měření a montáže tento týden</h3>
+            <div class="seg">
+              <button>Den</button>
+              <button class="on">Týden</button>
+              <button>Měsíc</button>
+            </div>
+          </div>
+          <div class="bars">
+            <div class="bar"><div class="bar__fill" style="height:30%"></div><div class="bar__label">Po</div></div>
+            <div class="bar bar--mid"><div class="bar__fill" style="height:62%"></div><div class="bar__label">Út</div></div>
+            <div class="bar bar--on">
+              <div class="bar__pop">8 prací</div>
+              <div class="bar__fill" style="height:88%"></div>
+              <div class="bar__label">St</div>
+            </div>
+            <div class="bar"><div class="bar__fill" style="height:46%"></div><div class="bar__label">Čt</div></div>
+            <div class="bar"><div class="bar__fill" style="height:24%"></div><div class="bar__label">Pá</div></div>
+            <div class="bar"><div class="bar__fill" style="height:14%"></div><div class="bar__label">So</div></div>
+            <div class="bar"><div class="bar__fill" style="height:10%"></div><div class="bar__label">Ne</div></div>
+          </div>
+        </div>
+
+        <!-- Reminder -->
+        <div class="card">
+          <div class="reminder__head">
+            <h3>Připomínka</h3>
+            <button class="icon-btn" style="width:32px;height:32px;border:none;background:transparent;">
+              <svg class="ico" viewBox="0 0 24 24" style="width:16px;height:16px;"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+            </button>
+          </div>
+          <div class="reminder__title">Měření hluku<br>Generali ČP</div>
+          <div class="reminder__when">Čtvrtek 27. 11. · 14:00 – 16:00</div>
+          <a href="#" class="reminder__cta"><span class="play">▶</span> Zahájit měření</a>
+        </div>
+
+        <!-- Project list -->
+        <div class="card">
+          <div class="proj__head">
+            <h3>Aktivní projekty</h3>
+            <button class="add">+ Nový</button>
+          </div>
+          <div class="proj__list">
+            <div class="proj__item">
+              <span class="proj__icon" style="background:#1E3A8A;">G</span>
+              <div class="proj__body">
+                <div class="proj__name">Generali ČP — open space</div>
+                <div class="proj__date">termín: 26. 11. 2026</div>
+              </div>
+            </div>
+            <div class="proj__item">
+              <span class="proj__icon" style="background:#DC2626;">C</span>
+              <div class="proj__body">
+                <div class="proj__name">Café Kafka — strop</div>
+                <div class="proj__date">termín: 28. 11. 2026</div>
+              </div>
+            </div>
+            <div class="proj__item">
+              <span class="proj__icon" style="background:#16A34A;">S</span>
+              <div class="proj__body">
+                <div class="proj__name">Studio Krátký — odhlučnění</div>
+                <div class="proj__date">termín: 30. 11. 2026</div>
+              </div>
+            </div>
+            <div class="proj__item">
+              <span class="proj__icon" style="background:#F59E0B;">B</span>
+              <div class="proj__body">
+                <div class="proj__name">Byt Vinohrady — podlaha</div>
+                <div class="proj__date">termín: 5. 12. 2026</div>
+              </div>
+            </div>
+            <div class="proj__item">
+              <span class="proj__icon" style="background:#7C3AED;">P</span>
+              <div class="proj__body">
+                <div class="proj__name">Penzion Liberec — VZT</div>
+                <div class="proj__date">termín: 6. 12. 2026</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 3 -->
+      <div class="grid grid--row3">
+        <!-- Team -->
+        <div class="card">
+          <div class="team__head">
+            <h3>Tým a úkoly</h3>
+            <button class="add">+ Přidat člena</button>
+          </div>
+          <div class="team__list">
+            <div class="team__row">
+              <div class="team__person">
+                <div class="team__avatar" style="background:#DC2626;">AD</div>
+                <div>
+                  <div class="team__name">Adam Dvořák</div>
+                  <div class="mono" style="font-size:11px;">akustik</div>
+                </div>
+              </div>
+              <div class="team__task">Pracuje na <strong>Generali ČP — měření</strong></div>
+              <span class="pill pill--progress">Probíhá</span>
+            </div>
+            <div class="team__row">
+              <div class="team__person">
+                <div class="team__avatar" style="background:#1E3A8A;">EN</div>
+                <div>
+                  <div class="team__name">Eva Nováková</div>
+                  <div class="mono" style="font-size:11px;">projektant</div>
+                </div>
+              </div>
+              <div class="team__task">Pracuje na <strong>Café Kafka — návrh stropu</strong></div>
+              <span class="pill pill--review">Ke schválení</span>
+            </div>
+            <div class="team__row">
+              <div class="team__person">
+                <div class="team__avatar" style="background:#16A34A;">IM</div>
+                <div>
+                  <div class="team__name">Ivan Mareš</div>
+                  <div class="mono" style="font-size:11px;">montér</div>
+                </div>
+              </div>
+              <div class="team__task">Pracuje na <strong>Studio Krátký — instalace panelů</strong></div>
+              <span class="pill pill--done">Hotovo</span>
+            </div>
+            <div class="team__row">
+              <div class="team__person">
+                <div class="team__avatar" style="background:#F59E0B;">DK</div>
+                <div>
+                  <div class="team__name">Dana Kratochvílová</div>
+                  <div class="mono" style="font-size:11px;">obchod</div>
+                </div>
+              </div>
+              <div class="team__task">Pracuje na <strong>Nabídka pro Penzion Liberec</strong></div>
+              <span class="pill pill--pending">Čeká</span>
+            </div>
+            <div class="team__row">
+              <div class="team__person">
+                <div class="team__avatar" style="background:#7C3AED;">MV</div>
+                <div>
+                  <div class="team__name">Martin Veselý</div>
+                  <div class="mono" style="font-size:11px;">technik</div>
+                </div>
+              </div>
+              <div class="team__task">Pracuje na <strong>Frekvenční analýza Byt VH</strong></div>
+              <span class="pill pill--progress">Probíhá</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Donut -->
+        <div class="card donut-card">
+          <h3>Postup projektů</h3>
+          <div class="donut">
+            <svg width="200" height="200" viewBox="0 0 200 200">
+              <circle cx="100" cy="100" r="80" fill="none" stroke="#F2F0EA" stroke-width="22"/>
+              <!-- Completed 64% red -->
+              <circle cx="100" cy="100" r="80" fill="none" stroke="#DC2626" stroke-width="22"
+                stroke-dasharray="321.7 502.7" stroke-linecap="butt"/>
+              <!-- In Progress 22% blue -->
+              <circle cx="100" cy="100" r="80" fill="none" stroke="#1E3A8A" stroke-width="22"
+                stroke-dasharray="110.6 502.7" stroke-dashoffset="-321.7"/>
+              <!-- Pending 14% remains gray -->
+            </svg>
+            <div class="donut__center">
+              <div class="donut__value">64%</div>
+              <div class="donut__label">DOKONČENO</div>
+            </div>
+          </div>
+          <div class="donut-legend">
+            <span><i style="background:#DC2626"></i> Dokončeno</span>
+            <span><i style="background:#1E3A8A"></i> Probíhá</span>
+            <span><i></i> Čeká</span>
+          </div>
+        </div>
+
+        <!-- Timer -->
+        <div class="card timer-card">
+          <h3>Záznam práce</h3>
+          <div class="timer__value" id="timerVal">01:24:08</div>
+          <div class="timer__sub">Generali ČP — akustické měření</div>
+          <div class="timer__ctrls">
+            <button class="timer__btn" aria-label="Pauza">
+              <svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px;"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>
+            </button>
+            <button class="timer__btn timer__btn--stop" aria-label="Stop">
+              <svg viewBox="0 0 24 24" fill="currentColor" style="width:12px;height:12px;"><rect x="5" y="5" width="14" height="14" rx="2"/></svg>
+            </button>
+            <div style="margin-left:auto; align-self:center; font-family:var(--f-mono); font-size:11px; color:rgba(255,255,255,0.55);">
+              Začátek 12:35
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEADS TABLE -->
+      <div class="card leads-card">
+        <div class="leads__head">
+          <h3>Nejnovější poptávky z webu</h3>
+          <div class="leads__filters">
+            <button class="on">Všechny</button>
+            <button>Nové</button>
+            <button>V jednání</button>
+            <button>Uzavřené</button>
+          </div>
+        </div>
+        <table class="leads-table">
+          <thead>
+            <tr>
+              <th>Klient</th>
+              <th>Typ projektu</th>
+              <th>Lokalita</th>
+              <th>Rozpočet</th>
+              <th>Stav</th>
+              <th>Přišlo</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="cust">
+                <div class="cust__avatar" style="background:#DC2626;">PH</div>
+                <div>
+                  <div class="cust__name">Petr Havlík</div>
+                  <div class="cust__co">Generali Česká pojišťovna</div>
+                </div>
+              </div></td>
+              <td>Open space — měření hluku</td>
+              <td>Praha 4</td>
+              <td>180 000 Kč</td>
+              <td><span class="pill pill--review">Nabídka</span></td>
+              <td><span class="mono" style="color:var(--fg-muted);">před 2 h</span></td>
+              <td><div class="actions">
+                <button aria-label="Otevřít"><svg class="ico" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M7 17L17 7M9 7h8v8"/></svg></button>
+                <button aria-label="Smazat"><svg class="ico" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg></button>
+              </div></td>
+            </tr>
+            <tr>
+              <td><div class="cust">
+                <div class="cust__avatar" style="background:#1E3A8A;">JN</div>
+                <div>
+                  <div class="cust__name">Jana Novotná</div>
+                  <div class="cust__co">Café Kafka, s.r.o.</div>
+                </div>
+              </div></td>
+              <td>Strop restaurace — útlum dozvuku</td>
+              <td>Brno-střed</td>
+              <td>95 000 Kč</td>
+              <td><span class="pill pill--progress">Měření</span></td>
+              <td><span class="mono" style="color:var(--fg-muted);">včera</span></td>
+              <td><div class="actions">
+                <button><svg class="ico" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M7 17L17 7M9 7h8v8"/></svg></button>
+                <button><svg class="ico" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg></button>
+              </div></td>
+            </tr>
+            <tr>
+              <td><div class="cust">
+                <div class="cust__avatar" style="background:#16A34A;">MK</div>
+                <div>
+                  <div class="cust__name">Martin Krátký</div>
+                  <div class="cust__co">Studio Krátký</div>
+                </div>
+              </div></td>
+              <td>Nahrávací studio — kompletní odhlučnění</td>
+              <td>Plzeň</td>
+              <td>420 000 Kč</td>
+              <td><span class="pill pill--done">Smlouva</span></td>
+              <td><span class="mono" style="color:var(--fg-muted);">před 3 d</span></td>
+              <td><div class="actions">
+                <button><svg class="ico" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M7 17L17 7M9 7h8v8"/></svg></button>
+                <button><svg class="ico" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg></button>
+              </div></td>
+            </tr>
+            <tr>
+              <td><div class="cust">
+                <div class="cust__avatar" style="background:#F59E0B;">LV</div>
+                <div>
+                  <div class="cust__name">Lucie Veselá</div>
+                  <div class="cust__co">soukromý byt</div>
+                </div>
+              </div></td>
+              <td>Plovoucí podlaha — kročejový hluk</td>
+              <td>Praha 2</td>
+              <td>68 000 Kč</td>
+              <td><span class="pill pill--pending">Čeká</span></td>
+              <td><span class="mono" style="color:var(--fg-muted);">před 4 d</span></td>
+              <td><div class="actions">
+                <button><svg class="ico" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M7 17L17 7M9 7h8v8"/></svg></button>
+                <button><svg class="ico" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg></button>
+              </div></td>
+            </tr>
+            <tr>
+              <td><div class="cust">
+                <div class="cust__avatar" style="background:#7C3AED;">RH</div>
+                <div>
+                  <div class="cust__name">Roman Hájek</div>
+                  <div class="cust__co">Penzion Liberec</div>
+                </div>
+              </div></td>
+              <td>Izolace VZT — strojovna</td>
+              <td>Liberec</td>
+              <td>240 000 Kč</td>
+              <td><span class="pill pill--review">Nabídka</span></td>
+              <td><span class="mono" style="color:var(--fg-muted);">před 5 d</span></td>
+              <td><div class="actions">
+                <button><svg class="ico" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M7 17L17 7M9 7h8v8"/></svg></button>
+                <button><svg class="ico" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg></button>
+              </div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script>
+  // Tick the time tracker
+  (function () {
+    const el = document.getElementById('timerVal');
+    if (!el) return;
+    let [h, m, s] = el.textContent.split(':').map(Number);
+    setInterval(() => {
+      s++;
+      if (s >= 60) { s = 0; m++; }
+      if (m >= 60) { m = 0; h++; }
+      el.textContent = [h, m, s].map(n => String(n).padStart(2, '0')).join(':');
+    }, 1000);
+  })();
+
+  // Segmented controls toggle
+  document.querySelectorAll('.seg, .leads__filters').forEach(group => {
+    group.addEventListener('click', e => {
+      const btn = e.target.closest('button');
+      if (!btn) return;
+      group.querySelectorAll('button').forEach(b => b.classList.remove('on'));
+      btn.classList.add('on');
+    });
+  });
+</script>
+
+</body>
+</html>
