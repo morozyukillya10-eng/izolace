@@ -85,10 +85,24 @@ if (counters.length) {
   counters.forEach((el) => cio.observe(el));
 }
 
-// --- Hero giant text scroll-scale ---
+// --- Hero giant text scroll-scale + full-width fit ---
 const heroWrap = document.getElementById('heroWrap');
 const heroGiant = document.getElementById('heroGiant');
 if (heroWrap && heroGiant) {
+  // Fit each word-span to the full container width
+  const heroSpans = [...heroGiant.querySelectorAll(':scope > span')];
+  const fitHeroText = () => {
+    const avail = heroGiant.clientWidth;
+    if (avail < 1) return;
+    heroSpans.forEach((span) => {
+      span.style.fontSize = '20px';
+      const w = span.scrollWidth;
+      if (w > 0) span.style.fontSize = Math.floor((avail / w) * 20 * 0.97) + 'px';
+    });
+  };
+  document.fonts.ready.then(fitHeroText);
+  window.addEventListener('resize', fitHeroText);
+
   const onHeroScroll = () => {
     const rect = heroWrap.getBoundingClientRect();
     const total = heroWrap.offsetHeight - window.innerHeight;
