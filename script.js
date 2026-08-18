@@ -342,6 +342,9 @@ document.querySelectorAll('.pd__thumb').forEach((t) => {
   t.addEventListener('click', () => {
     document.querySelectorAll('.pd__thumb').forEach((x) => x.classList.remove('active'));
     t.classList.add('active');
+    const full = t.dataset.full;
+    const mainImg = document.querySelector('.pd__main img');
+    if (full && mainImg) mainImg.src = full;
   });
 });
 

@@ -41,6 +41,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
 </head>
 <body data-screen-label="01 Homepage">
 
@@ -53,7 +57,7 @@
       <li><a href="o-nas.html">O nás</a></li>
       <li><a href="kontakt.html">Kontakt</a></li>
     </ul>
-    <a href="index.html" class="logo">TICHÝ DOMOV</a>
+    <a href="index.html" class="logo"><img src="images/logo-icon.png" alt="" class="logo__icon">TICHÝ DOMOV</a>
     <div class="nav__cta">
       <a href="tel:+420777123456" class="nav__phone">+420 777 123 456</a>
       <a href="kontakt.html" class="btn btn--primary">Poptávka <span class="arrow">→</span></a>
@@ -203,90 +207,92 @@
     <div class="products">
       <article class="product reveal">
         <div class="product__img">
-          <span class="product__tag">Bestseller</span>
-          <div class="ph"><span class="ph-label">Akustický panel — produktová fotka</span></div>
+          <span class="product__tag" style="background:#2A2A2A;">WOLF · CIUR a.s.</span>
+          <img src="images/materialy/wolf-phonestar-plus-tri.jpg" alt="WOLF PhoneStar Plus TRI akustická deska" loading="lazy">
           <div class="product__overlay">
             <div class="product__specs">
-              <span>R'w<strong>54 dB</strong></span>
-              <span>tl.<strong>50 mm</strong></span>
-              <span>Třída<strong>A1</strong></span>
+              <span>Rw<strong>42 dB</strong></span>
+              <span>tl.<strong>15 mm</strong></span>
+              <span>Formát<strong>125×62,5</strong></span>
             </div>
           </div>
         </div>
         <div class="product__body">
-          <span class="product__cat">Stěnové panely</span>
-          <h3 class="product__name">SILENTWALL Pro 50</h3>
-          <p class="product__desc">Sendvičový panel s minerální vlnou a perforovaným MDF povrchem. Pohlcuje široké pásmo i nízké frekvence.</p>
+          <span class="product__cat">Stěnové panely · dodavatelský materiál</span>
+          <h3 class="product__name">WOLF PhoneStar Plus TRI</h3>
+          <p class="product__desc">Třívlnná deska s pískovou výplní pro podlahy, stěny i stropy. Nejvyšší útlum v řadě PhoneStar při tloušťce jen 15 mm.</p>
           <div class="product__foot">
-            <span class="mono">od 1 290 Kč/m²</span>
-            <a href="produkt.html">Detail <span class="arrow">→</span></a>
+            <span class="mono">od 1 672 Kč/ks</span>
+            <a href="produkt-wolf-phonestar-plus-tri.html">Detail <span class="arrow">→</span></a>
           </div>
         </div>
       </article>
 
       <article class="product reveal" data-delay="1">
         <div class="product__img">
-          <div class="ph"><span class="ph-label">Stropní podhled — produktová fotka</span></div>
+          <span class="product__tag" style="background:#2A2A2A;">WOLF · CIUR a.s.</span>
+          <img src="images/materialy/wolf-phonestar-st-tri.jpg" alt="WOLF PhoneStar ST TRI akustická deska" loading="lazy">
           <div class="product__overlay">
             <div class="product__specs">
-              <span>NRC<strong>0,95</strong></span>
-              <span>tl.<strong>40 mm</strong></span>
-              <span>Třída<strong>A</strong></span>
+              <span>Rw<strong>36 dB</strong></span>
+              <span>tl.<strong>12,5 mm</strong></span>
+              <span>Formát<strong>120×80</strong></span>
             </div>
           </div>
         </div>
         <div class="product__body">
-          <span class="product__cat">Stropní systémy</span>
-          <h3 class="product__name">CLOUD Ceiling 40</h3>
-          <p class="product__desc">Volně zavěšené ostrovy z melaminové pěny pro snížení dozvuku v open spacech a restauracích.</p>
+          <span class="product__cat">Stropní systémy · dodavatelský materiál</span>
+          <h3 class="product__name">WOLF PhoneStar ST TRI</h3>
+          <p class="product__desc">Tenčí varianta desky PhoneStar pro skladby s omezenou stavební výškou — podlahy, alternativně stěny a stropy.</p>
           <div class="product__foot">
-            <span class="mono">od 2 450 Kč/ks</span>
-            <a href="produkt.html">Detail <span class="arrow">→</span></a>
+            <span class="mono">od 574 Kč/ks</span>
+            <a href="produkt-wolf-phonestar-st-tri.html">Detail <span class="arrow">→</span></a>
           </div>
         </div>
       </article>
 
       <article class="product reveal" data-delay="2">
         <div class="product__img">
-          <span class="product__tag" style="background:var(--blue);">Novinka</span>
-          <div class="ph"><span class="ph-label">Plovoucí podlaha — řez konstrukcí</span></div>
+          <span class="product__tag" style="background:#2A2A2A;">WOLF · CIUR a.s.</span>
+          <img src="images/materialy/wolf-hugo-nf.jpg" alt="WOLF HUGO N+F sádrovláknitá podlahová deska" loading="lazy">
           <div class="product__overlay">
             <div class="product__specs">
-              <span>ΔLw<strong>32 dB</strong></span>
-              <span>tl.<strong>28 mm</strong></span>
-              <span>Pevnost<strong>5,5 kPa</strong></span>
+              <span>tl.<strong>18 mm</strong></span>
+              <span>Hmotnost<strong>22,5 kg/m²</strong></span>
+              <span>Spoj<strong>pero-drážka</strong></span>
             </div>
           </div>
         </div>
         <div class="product__body">
-          <span class="product__cat">Podlahové izolace</span>
-          <h3 class="product__name">FLOAT System 28</h3>
-          <p class="product__desc">Plovoucí podlaha s pružnými podložkami. Eliminuje kročejový hluk mezi patry a vibrace strojoven.</p>
+          <span class="product__cat">Podlahové izolace · dodavatelský materiál</span>
+          <h3 class="product__name">WOLF HUGO N+F</h3>
+          <p class="product__desc">Sádrovláknitá podlahová deska se spojem pero-drážka pro finální roznášecí vrstvu nad akustickými deskami.</p>
           <div class="product__foot">
-            <span class="mono">od 890 Kč/m²</span>
-            <a href="produkt.html">Detail <span class="arrow">→</span></a>
+            <span class="mono">od 693 Kč/ks</span>
+            <a href="produkt-wolf-hugo-nf.html">Detail <span class="arrow">→</span></a>
           </div>
         </div>
       </article>
 
       <article class="product reveal">
         <div class="product__img">
-          <div class="ph"><span class="ph-label">VZT izolace — montážní záběr</span></div>
+          <span class="product__tag" style="background:#2A2A2A;">WOLF · CIUR a.s.</span>
+          <img src="images/materialy/wolf-phonestar-tri.jpg" alt="WOLF PhoneStar TRI akustická deska" loading="lazy">
           <div class="product__overlay">
             <div class="product__specs">
-              <span>R'w<strong>48 dB</strong></span>
-              <span>tepl.<strong>−40 / 250°C</strong></span>
-              <span>tl.<strong>50 mm</strong></span>
+              <span>Rw<strong>38 dB</strong></span>
+              <span>tl.<strong>15 mm</strong></span>
+              <span>Formát<strong>120×80</strong></span>
             </div>
           </div>
         </div>
         <div class="product__body">
-          <span class="product__cat">VZT a strojovny</span>
-          <h3 class="product__name">DUCT Wrap Heavy</h3>
-          <p class="product__desc">Těžká bariérová fólie s minerální vlnou pro tlumení potrubí, kompresorů a vzduchotechnických jednotek.</p>
+          <span class="product__cat">Stěnové panely · dodavatelský materiál</span>
+          <h3 class="product__name">WOLF PhoneStar TRI</h3>
+          <p class="product__desc">Nejprodávanější univerzální deska řady PhoneStar pro podlahy, stěny i stropy. Patentovaná konstrukce s pískovou výplní.</p>
           <div class="product__foot">
-            <span class="mono">od 1 690 Kč/m²</span>
-            <a href="produkt.html">Detail <span class="arrow">→</span></a>
+            <span class="mono">od 785 Kč/ks</span>
+            <a href="produkt-wolf-phonestar-tri.html">Detail <span class="arrow">→</span></a>
           </div>
         </div>
       </article>
@@ -616,7 +622,7 @@
   <div class="container">
     <div class="footer__grid">
       <div>
-        <a href="index.html" class="logo">TICHÝ DOMOV</a>
+        <a href="index.html" class="logo"><img src="images/logo-icon.png" alt="" class="logo__icon">TICHÝ DOMOV</a>
         <p class="footer__about">Akustická řešení pro byty, kanceláře, gastronomii, studia a průmysl. Měříme, navrhujeme, montujeme — vlastním týmem od roku 2008.</p>
       </div>
       <div class="footer__col">

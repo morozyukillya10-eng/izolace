@@ -9,6 +9,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
 </head>
 <body data-screen-label="02 Katalog">
 
@@ -21,7 +25,7 @@
       <li><a href="o-nas.html">O nás</a></li>
       <li><a href="kontakt.html">Kontakt</a></li>
     </ul>
-    <a href="index.html" class="logo">TICHÝ DOMOV</a>
+    <a href="index.html" class="logo"><img src="images/logo-icon.png" alt="" class="logo__icon">TICHÝ DOMOV</a>
     <div class="nav__cta">
       <a href="tel:+420777123456" class="nav__phone">+420 777 123 456</a>
       <a href="kontakt.html" class="btn btn--primary">Poptávka <span class="arrow">→</span></a>
@@ -35,7 +39,7 @@
     <div class="page-header__crumb"><a href="index.html">Domů</a> &nbsp;/&nbsp; Katalog</div>
     <div class="page-header__row">
       <h1>Produktový <span class="serif">katalog.</span></h1>
-      <p class="lead">14 certifikovaných systémů ve 6 kategoriích. Každý s technickým listem ke stažení, hodnotami útlumu a referencí na realizaci.</p>
+      <p class="lead">18 certifikovaných systémů ve 6 kategoriích — vlastní řady i materiály od prověřených dodavatelů. Každý s technickým listem, hodnotami útlumu a referencí na realizaci.</p>
     </div>
   </div>
 </header>
@@ -43,7 +47,7 @@
 <section class="tight">
   <div class="container">
     <div class="filters">
-      <button class="filter active" data-filter="all">Vše · 14</button>
+      <button class="filter active" data-filter="all">Vše · 18</button>
       <button class="filter" data-filter="steny">Stěnové panely</button>
       <button class="filter" data-filter="stropy">Stropní systémy</button>
       <button class="filter" data-filter="podlahy">Podlahové izolace</button>
@@ -94,6 +98,34 @@
         </div>
       </article>
 
+      <article class="product reveal" data-cat="steny">
+        <div class="product__img">
+          <span class="product__tag" style="background:#2A2A2A;">WOLF · CIUR a.s.</span>
+          <img src="images/materialy/wolf-phonestar-plus-tri.jpg" alt="WOLF PhoneStar Plus TRI akustická deska" loading="lazy">
+          <div class="product__overlay"><div class="product__specs"><span>Rw<strong>42 dB</strong></span><span>tl.<strong>15 mm</strong></span><span>Formát<strong>125×62,5</strong></span></div></div>
+        </div>
+        <div class="product__body">
+          <span class="product__cat">Stěnové panely · dodavatelský materiál</span>
+          <h3 class="product__name">WOLF PhoneStar Plus TRI</h3>
+          <p class="product__desc">Třívlnná deska s pískovou výplní pro podlahy, stěny i stropy. Nejvyšší útlum v řadě PhoneStar při tloušťce jen 15 mm. Materiál dodává CIUR a.s.</p>
+          <div class="product__foot"><span class="mono">od 1 672 Kč/ks</span><a href="produkt-wolf-phonestar-plus-tri.html">Detail <span class="arrow">→</span></a></div>
+        </div>
+      </article>
+
+      <article class="product reveal" data-cat="steny" data-delay="1">
+        <div class="product__img">
+          <span class="product__tag" style="background:#2A2A2A;">WOLF · CIUR a.s.</span>
+          <img src="images/materialy/wolf-phonestar-tri.jpg" alt="WOLF PhoneStar TRI akustická deska" loading="lazy">
+          <div class="product__overlay"><div class="product__specs"><span>Rw<strong>38 dB</strong></span><span>tl.<strong>15 mm</strong></span><span>Formát<strong>120×80</strong></span></div></div>
+        </div>
+        <div class="product__body">
+          <span class="product__cat">Stěnové panely · dodavatelský materiál</span>
+          <h3 class="product__name">WOLF PhoneStar TRI</h3>
+          <p class="product__desc">Nejprodávanější univerzální deska řady PhoneStar pro podlahy, stěny i stropy. Patentovaná konstrukce s pískovou výplní. Materiál dodává CIUR a.s.</p>
+          <div class="product__foot"><span class="mono">od 785 Kč/ks</span><a href="produkt-wolf-phonestar-tri.html">Detail <span class="arrow">→</span></a></div>
+        </div>
+      </article>
+
       <article class="product reveal" data-cat="stropy">
         <div class="product__img">
           <div class="ph"><span class="ph-label">CLOUD Ceiling 40</span></div>
@@ -133,6 +165,20 @@
         </div>
       </article>
 
+      <article class="product reveal" data-cat="stropy" data-delay="3">
+        <div class="product__img">
+          <span class="product__tag" style="background:#2A2A2A;">WOLF · CIUR a.s.</span>
+          <img src="images/materialy/wolf-phonestar-st-tri.jpg" alt="WOLF PhoneStar ST TRI akustická deska" loading="lazy">
+          <div class="product__overlay"><div class="product__specs"><span>Rw<strong>36 dB</strong></span><span>tl.<strong>12,5 mm</strong></span><span>Formát<strong>120×80</strong></span></div></div>
+        </div>
+        <div class="product__body">
+          <span class="product__cat">Stropní systémy · dodavatelský materiál</span>
+          <h3 class="product__name">WOLF PhoneStar ST TRI</h3>
+          <p class="product__desc">Tenčí varianta desky PhoneStar pro skladby s omezenou stavební výškou — podlahy, alternativně stěny a stropy. Materiál dodává CIUR a.s.</p>
+          <div class="product__foot"><span class="mono">od 574 Kč/ks</span><a href="produkt-wolf-phonestar-st-tri.html">Detail <span class="arrow">→</span></a></div>
+        </div>
+      </article>
+
       <article class="product reveal" data-cat="podlahy">
         <div class="product__img">
           <span class="product__tag" style="background:var(--blue);">Novinka</span>
@@ -157,6 +203,20 @@
           <h3 class="product__name">FLOAT Heavy 60</h3>
           <p class="product__desc">Těžká plovoucí podlaha pro studia a vibračně náročné provozy. Vlastní rezonance pod 8 Hz.</p>
           <div class="product__foot"><span class="mono">od 1 590 Kč/m²</span><a href="produkt.html">Detail <span class="arrow">→</span></a></div>
+        </div>
+      </article>
+
+      <article class="product reveal" data-cat="podlahy" data-delay="2">
+        <div class="product__img">
+          <span class="product__tag" style="background:#2A2A2A;">WOLF · CIUR a.s.</span>
+          <img src="images/materialy/wolf-hugo-nf.jpg" alt="WOLF HUGO N+F sádrovláknitá podlahová deska" loading="lazy">
+          <div class="product__overlay"><div class="product__specs"><span>tl.<strong>18 mm</strong></span><span>Hmotnost<strong>22,5 kg/m²</strong></span><span>Spoj<strong>pero-drážka</strong></span></div></div>
+        </div>
+        <div class="product__body">
+          <span class="product__cat">Podlahové izolace · dodavatelský materiál</span>
+          <h3 class="product__name">WOLF HUGO N+F</h3>
+          <p class="product__desc">Sádrovláknitá podlahová deska se spojem pero-drážka pro finální roznášecí vrstvu plovoucí podlahy nad akustickými deskami. Materiál dodává CIUR a.s.</p>
+          <div class="product__foot"><span class="mono">od 693 Kč/ks</span><a href="produkt-wolf-hugo-nf.html">Detail <span class="arrow">→</span></a></div>
         </div>
       </article>
 
@@ -263,7 +323,7 @@
   <div class="container">
     <div class="footer__grid">
       <div>
-        <a href="index.html" class="logo">TICHÝ DOMOV</a>
+        <a href="index.html" class="logo"><img src="images/logo-icon.png" alt="" class="logo__icon">TICHÝ DOMOV</a>
         <p class="footer__about">Akustická řešení pro byty, kanceláře, gastronomii, studia a průmysl. Měříme, navrhujeme, montujeme — vlastním týmem od roku 2008.</p>
       </div>
       <div class="footer__col"><h4>Služby</h4><ul><li><a href="index.html#sluzby">Audit</a></li><li><a href="index.html#sluzby">Návrh</a></li><li><a href="index.html#sluzby">Montáž</a></li><li><a href="index.html#sluzby">Měření</a></li></ul></div>
