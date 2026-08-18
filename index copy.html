@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SILENTUM° — Akustická řešení na míru | Zvukové izolace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body data-screen-label="01 Homepage">
+
+<nav class="nav">
+  <div class="container nav__inner">
+    <ul class="nav__links">
+      <li><a href="#sluzby">Služby</a></li>
+      <li><a href="katalog.html">Produkty</a></li>
+      <li><a href="galerie.html">Realizace</a></li>
+      <li><a href="#reference">Reference</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="index.html" class="logo">SILENTUM<span class="dot">°</span></a>
+    <div class="nav__cta">
+      <a href="tel:+420777123456" class="nav__phone">+420 777 123 456</a>
+      <a href="#kontakt" class="btn btn--primary">Poptávka <span class="arrow">→</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================= HERO — minimalist giant text ============================= -->
+<div class="hero-wrap" id="heroWrap">
+  <section class="hero">
+    <div class="container hero__top">
+      <span class="eyebrow">Akustická řešení · Od 2008</span>
+      <p class="hero__intro">Měříme, navrhujeme a montujeme zvukové izolace s garantovaným útlumem. Pro byty, kanceláře, gastronomii, studia i průmysl.</p>
+    </div>
+
+    <div class="hero__giant" id="heroGiant">
+      <span>Vrátíme</span> <span class="serif">ticho<span class="accent-dot"></span></span>
+    </div>
+
+    <div class="container hero__bottom">
+      <p class="hero__bottom-text">
+        Každý projekt začíná měřením, končí protokolem o dosaženém útlumu. Žádné odhady, žádné kompromisy.
+      </p>
+      <div class="hero__bottom-ctas">
+        <a href="#kontakt" class="btn btn--primary">Získat audit zdarma <span class="arrow">→</span></a>
+        <a href="katalog.html" class="btn btn--ghost">Katalog</a>
+      </div>
+      <div class="hero__bottom-meta">
+        <div><span class="mono">útlum až</span><strong>62<span class="unit">dB</span></strong></div>
+        <div><span class="mono">realizací</span><strong>847</strong></div>
+        <div><span class="mono">záruka</span><strong>10<span class="unit">let</span></strong></div>
+      </div>
+    </div>
+
+    <div class="hero__scroll-hint">Posuňte dolů</div>
+  </section>
+</div>
+
+<!-- ============================= MARQUEE ============================= -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span class="marquee__item">Akustické panely</span>
+    <span class="marquee__item">Stropní podhledy</span>
+    <span class="marquee__item">Plovoucí podlahy</span>
+    <span class="marquee__item">Izolace VZT</span>
+    <span class="marquee__item">Měření hluku</span>
+    <span class="marquee__item">Montáž na klíč</span>
+    <span class="marquee__item">Akustické panely</span>
+    <span class="marquee__item">Stropní podhledy</span>
+    <span class="marquee__item">Plovoucí podlahy</span>
+    <span class="marquee__item">Izolace VZT</span>
+    <span class="marquee__item">Měření hluku</span>
+    <span class="marquee__item">Montáž na klíč</span>
+  </div>
+</div>
+
+<!-- ============================= STATS ============================= -->
+<section class="stats">
+  <div class="container">
+    <div class="stats__grid">
+      <div class="stat reveal">
+        <div class="stat__num"><span data-count="62">0</span><span class="unit">dB</span></div>
+        <div class="stat__label">Maximální dosažený útlum mezi byty</div>
+      </div>
+      <div class="stat reveal" data-delay="1">
+        <div class="stat__num"><span data-count="847">0</span></div>
+        <div class="stat__label">Realizací od roku 2008</div>
+      </div>
+      <div class="stat reveal" data-delay="2">
+        <div class="stat__num"><span data-count="18">0</span><span class="unit">let</span></div>
+        <div class="stat__label">Praxe v projektování a montáži</div>
+      </div>
+      <div class="stat reveal" data-delay="3">
+        <div class="stat__num"><span data-count="98" data-decimals="0">0</span><span class="unit">%</span></div>
+        <div class="stat__label">Spokojených klientů (NPS 76)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= O NÁS / PROČ ============================= -->
+<section id="o-nas">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow reveal">O nás</span>
+        <h2 class="reveal" data-delay="1">Akustika není <span class="serif">magie.</span> Je to měření.</h2>
+      </div>
+      <p class="lead section-head__lead reveal" data-delay="2">
+        Spojujeme stavební inženýrství s akustikou. Každý projekt začíná měřením in‑situ, frekvenční analýzou a výpočtem — teprve potom navrhujeme skladbu. Žádné odhady.
+      </p>
+    </div>
+
+    <div class="process__steps" id="sluzby">
+      <article class="step reveal">
+        <span class="step__num">01 / Diagnostika</span>
+        <h3 class="step__title">Měření a frekvenční analýza</h3>
+        <p class="step__desc">Přijedeme s kalibrovaným zvukoměrem třídy 1, změříme dobu dozvuku, izolaci stěn (R'w) a identifikujeme dominantní zdroje hluku napříč spektrem 50—5000 Hz.</p>
+      </article>
+      <article class="step reveal" data-delay="1">
+        <span class="step__num">02 / Návrh</span>
+        <h3 class="step__title">Projekt a 3D simulace</h3>
+        <p class="step__desc">V softwaru Odeon a INSUL spočítáme předpokládaný útlum každé skladby. Dostanete projekt s garantovanou hodnotou útlumu před objednáním materiálu.</p>
+      </article>
+      <article class="step reveal" data-delay="2">
+        <span class="step__num">03 / Realizace</span>
+        <h3 class="step__title">Montáž vlastním týmem</h3>
+        <p class="step__desc">Žádní subdodavatelé. Naši montéři jsou certifikovaní výrobci materiálů (Rockwool, Knauf, Vicoustic). Pracujeme po etapách, beze stop.</p>
+      </article>
+      <article class="step reveal" data-delay="3">
+        <span class="step__num">04 / Garance</span>
+        <h3 class="step__title">Ověření a 10 let záruka</h3>
+        <p class="step__desc">Po dokončení provádíme kontrolní měření a předáme vám protokol o dosaženém útlumu. Pokud nebudou hodnoty sedět, dopracujeme zdarma.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= PRODUKTY ============================= -->
+<section id="produkty" style="background: linear-gradient(180deg, transparent, rgba(255,255,255,0.015));">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow reveal">Produktový katalog</span>
+        <h2 class="reveal" data-delay="1">Materiály, které <span class="serif">opravdu fungují.</span></h2>
+      </div>
+      <div class="section-head__lead">
+        <p class="lead reveal" data-delay="2">Pracujeme jen s certifikovanými systémy ověřenými vlastním měřením. Každý produkt má dohledatelné technické listy a hodnoty útlumu.</p>
+        <a href="katalog.html" class="btn btn--ghost reveal" data-delay="3" style="margin-top:24px;">Celý katalog <span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <div class="products">
+      <article class="product reveal">
+        <div class="product__img">
+          <span class="product__tag">Bestseller</span>
+          <div class="ph"><span class="ph-label">Akustický panel — produktová fotka</span></div>
+          <div class="product__overlay">
+            <div class="product__specs">
+              <span>R'w<strong>54 dB</strong></span>
+              <span>tl.<strong>50 mm</strong></span>
+              <span>Třída<strong>A1</strong></span>
+            </div>
+          </div>
+        </div>
+        <div class="product__body">
+          <span class="product__cat">Stěnové panely</span>
+          <h3 class="product__name">SILENTWALL Pro 50</h3>
+          <p class="product__desc">Sendvičový panel s minerální vlnou a perforovaným MDF povrchem. Pohlcuje široké pásmo i nízké frekvence.</p>
+          <div class="product__foot">
+            <span class="mono">od 1 290 Kč/m²</span>
+            <a href="produkt.html">Detail <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product reveal" data-delay="1">
+        <div class="product__img">
+          <div class="ph"><span class="ph-label">Stropní podhled — produktová fotka</span></div>
+          <div class="product__overlay">
+            <div class="product__specs">
+              <span>NRC<strong>0,95</strong></span>
+              <span>tl.<strong>40 mm</strong></span>
+              <span>Třída<strong>A</strong></span>
+            </div>
+          </div>
+        </div>
+        <div class="product__body">
+          <span class="product__cat">Stropní systémy</span>
+          <h3 class="product__name">CLOUD Ceiling 40</h3>
+          <p class="product__desc">Volně zavěšené ostrovy z melaminové pěny pro snížení dozvuku v open spacech a restauracích.</p>
+          <div class="product__foot">
+            <span class="mono">od 2 450 Kč/ks</span>
+            <a href="produkt.html">Detail <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product reveal" data-delay="2">
+        <div class="product__img">
+          <span class="product__tag" style="background:var(--blue);">Novinka</span>
+          <div class="ph"><span class="ph-label">Plovoucí podlaha — řez konstrukcí</span></div>
+          <div class="product__overlay">
+            <div class="product__specs">
+              <span>ΔLw<strong>32 dB</strong></span>
+              <span>tl.<strong>28 mm</strong></span>
+              <span>Pevnost<strong>5,5 kPa</strong></span>
+            </div>
+          </div>
+        </div>
+        <div class="product__body">
+          <span class="product__cat">Podlahové izolace</span>
+          <h3 class="product__name">FLOAT System 28</h3>
+          <p class="product__desc">Plovoucí podlaha s pružnými podložkami. Eliminuje kročejový hluk mezi patry a vibrace strojoven.</p>
+          <div class="product__foot">
+            <span class="mono">od 890 Kč/m²</span>
+            <a href="produkt.html">Detail <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product reveal">
+        <div class="product__img">
+          <div class="ph"><span class="ph-label">VZT izolace — montážní záběr</span></div>
+          <div class="product__overlay">
+            <div class="product__specs">
+              <span>R'w<strong>48 dB</strong></span>
+              <span>tepl.<strong>−40 / 250°C</strong></span>
+              <span>tl.<strong>50 mm</strong></span>
+            </div>
+          </div>
+        </div>
+        <div class="product__body">
+          <span class="product__cat">VZT a strojovny</span>
+          <h3 class="product__name">DUCT Wrap Heavy</h3>
+          <p class="product__desc">Těžká bariérová fólie s minerální vlnou pro tlumení potrubí, kompresorů a vzduchotechnických jednotek.</p>
+          <div class="product__foot">
+            <span class="mono">od 1 690 Kč/m²</span>
+            <a href="produkt.html">Detail <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product reveal" data-delay="1">
+        <div class="product__img">
+          <div class="ph"><span class="ph-label">Difuzor — close‑up textury</span></div>
+          <div class="product__overlay">
+            <div class="product__specs">
+              <span>Rozsah<strong>200–4kHz</strong></span>
+              <span>tl.<strong>120 mm</strong></span>
+              <span>Materiál<strong>Dub / MDF</strong></span>
+            </div>
+          </div>
+        </div>
+        <div class="product__body">
+          <span class="product__cat">Difuzory pro studia</span>
+          <h3 class="product__name">QRD Diffuser N7</h3>
+          <p class="product__desc">Quadratic Residue Diffusor sedmého řádu. Rozptyluje zvuk v nahrávacích studiích a mastering místnostech.</p>
+          <div class="product__foot">
+            <span class="mono">od 5 200 Kč/ks</span>
+            <a href="produkt.html">Detail <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product reveal" data-delay="2">
+        <div class="product__img">
+          <span class="product__tag">Custom</span>
+          <div class="ph"><span class="ph-label">Bass trap v rohu místnosti</span></div>
+          <div class="product__overlay">
+            <div class="product__specs">
+              <span>Rozsah<strong>40–250Hz</strong></span>
+              <span>hl.<strong>600 mm</strong></span>
+              <span>Pohl.<strong>1,0 αw</strong></span>
+            </div>
+          </div>
+        </div>
+        <div class="product__body">
+          <span class="product__cat">Pohlcovače basů</span>
+          <h3 class="product__name">BASS Trap Corner</h3>
+          <p class="product__desc">Rohový bass trap z měkčené minerální vlny a perforovaného plechu pro studia a posluchové místnosti.</p>
+          <div class="product__foot">
+            <span class="mono">od 3 850 Kč/ks</span>
+            <a href="produkt.html">Detail <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= BEFORE / AFTER ============================= -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow reveal">Rozdíl, který slyšíte</span>
+        <h2 class="reveal" data-delay="1">Před a po. <span class="serif">Posuňte slider.</span></h2>
+      </div>
+      <p class="lead section-head__lead reveal" data-delay="2">Vlevo: hlučná restaurace bez akustiky — dozvuk 1,8 s, hluk z reproduktorů + hovorů. Vpravo: po instalaci stropních ostrovů a stěnových panelů.</p>
+    </div>
+
+    <div class="compare reveal">
+      <div class="compare__info">
+        <span class="eyebrow">Restaurace · Praha 7</span>
+        <h3 style="font-size:36px;">Z chaosu <span class="serif">do klidu.</span></h3>
+        <p class="lead" style="font-size:16px;">Open kitchen koncept s 80 místy. Před úpravou si hosté museli křičet od stolu ke stolu. 36 stropních ostrovů + obklady stěn vyřešily problém za 6 dní.</p>
+        <div class="compare__readout">
+          <span>aktuální hluk</span>
+          <strong><span data-readout>60</span> dB</strong>
+          <span class="delta">−25 dB</span>
+        </div>
+      </div>
+      <div class="compare__slider">
+        <div class="compare__panel compare__panel--before">
+          <span class="compare__panel-label">Před · 85 dB · dozvuk 1,8 s</span>
+          <svg class="compare__waves" viewBox="0 0 500 400" fill="none" aria-hidden="true">
+            <g stroke="#E63946" stroke-width="2" stroke-linecap="round">
+              <path d="M50 200 Q 75 100, 100 200 T 150 200 T 200 200 T 250 200 T 300 200 T 350 200 T 400 200 T 450 200">
+                <animate attributeName="d" dur="0.6s" repeatCount="indefinite" values="M50 200 Q 75 80, 100 200 T 150 200 T 200 200 T 250 200 T 300 200 T 350 200 T 400 200 T 450 200; M50 200 Q 75 320, 100 200 T 150 200 T 200 200 T 250 200 T 300 200 T 350 200 T 400 200 T 450 200; M50 200 Q 75 80, 100 200 T 150 200 T 200 200 T 250 200 T 300 200 T 350 200 T 400 200 T 450 200"/>
+              </path>
+              <path d="M50 200 Q 80 140, 110 200 T 170 200 T 230 200 T 290 200 T 350 200 T 410 200 T 470 200" stroke-opacity="0.4">
+                <animate attributeName="d" dur="0.4s" repeatCount="indefinite" values="M50 200 Q 80 120, 110 200 T 170 200 T 230 200 T 290 200 T 350 200 T 410 200 T 470 200; M50 200 Q 80 280, 110 200 T 170 200 T 230 200 T 290 200 T 350 200 T 410 200 T 470 200; M50 200 Q 80 120, 110 200 T 170 200 T 230 200 T 290 200 T 350 200 T 410 200 T 470 200"/>
+              </path>
+            </g>
+          </svg>
+        </div>
+        <div class="compare__panel compare__panel--after">
+          <span class="compare__panel-label">Po · 60 dB · dozvuk 0,4 s</span>
+          <svg class="compare__waves" viewBox="0 0 500 400" fill="none" aria-hidden="true">
+            <g stroke="#5C82FF" stroke-width="1.5" stroke-linecap="round" stroke-opacity="0.7">
+              <path d="M50 200 Q 100 190, 150 200 T 250 200 T 350 200 T 450 200">
+                <animate attributeName="d" dur="3s" repeatCount="indefinite" values="M50 200 Q 100 195, 150 200 T 250 200 T 350 200 T 450 200; M50 200 Q 100 205, 150 200 T 250 200 T 350 200 T 450 200; M50 200 Q 100 195, 150 200 T 250 200 T 350 200 T 450 200"/>
+              </path>
+              <path d="M50 200 Q 100 198, 150 200 T 250 200 T 350 200 T 450 200" stroke-opacity="0.3"/>
+            </g>
+          </svg>
+        </div>
+        <div class="compare__handle">
+          <div class="compare__handle-grip">⇄</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= GALERIE PREVIEW ============================= -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow reveal">Realizace</span>
+        <h2 class="reveal" data-delay="1">Vybrané <span class="serif">projekty.</span></h2>
+      </div>
+      <div class="section-head__lead">
+        <p class="lead reveal" data-delay="2">Od luxusních bytů po průmyslové strojovny. Každá realizace má svůj akustický protokol.</p>
+        <a href="galerie.html" class="btn btn--ghost reveal" data-delay="3" style="margin-top:24px;">Celá galerie (84) <span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <div class="gallery-preview reveal">
+      <div class="tile">
+        <div class="ph"><span class="ph-label">Penthouse Karlín — obývák</span></div>
+        <div class="tile__caption"><span>Penthouse Karlín · 2025</span><span>R'w 58 dB</span></div>
+      </div>
+      <div class="tile">
+        <div class="ph"><span class="ph-label">Open space — Karlín</span></div>
+        <div class="tile__caption"><span>Generali — open space</span><span>−18 dB</span></div>
+      </div>
+      <div class="tile">
+        <div class="ph"><span class="ph-label">Hudební studio</span></div>
+        <div class="tile__caption"><span>SoundLab Studio</span><span>RT60 0,3 s</span></div>
+      </div>
+      <div class="tile">
+        <div class="ph"><span class="ph-label">Restaurace Vinohrady</span></div>
+        <div class="tile__caption"><span>Bistro Pravda</span><span>−22 dB</span></div>
+      </div>
+      <div class="tile">
+        <div class="ph"><span class="ph-label">Strojovna výrobní haly</span></div>
+        <div class="tile__caption"><span>Škoda — Mladá Boleslav</span><span>R'w 48 dB</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= REFERENCE ============================= -->
+<section id="reference">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow reveal">Reference</span>
+        <h2 class="reveal" data-delay="1">Co o nás <span class="serif">říkají klienti.</span></h2>
+      </div>
+      <p class="lead section-head__lead reveal" data-delay="2">79 hodnocení na Google · průměr 4,9★ · NPS skóre 76</p>
+    </div>
+
+    <div class="testimonials">
+      <article class="testimonial reveal">
+        <p class="testimonial__quote">Akustický audit nám otevřel oči — slyšeli jsme od souseda všechno. Po výměně mezibytové stěny je doma poprvé klid. Hodnoty útlumu sedí přesně na projekt.</p>
+        <div class="testimonial__foot">
+          <div style="display:flex;gap:16px;align-items:center;">
+            <div class="testimonial__avatar">JN</div>
+            <div class="testimonial__author">
+              <strong>Jakub Novotný</strong>
+              <span>Byt · Praha 5 Smíchov</span>
+            </div>
+          </div>
+          <span class="testimonial__rating">★★★★★</span>
+        </div>
+      </article>
+
+      <article class="testimonial reveal" data-delay="1">
+        <p class="testimonial__quote">Akustika otevřeného studia byla noční můra — všechno se odráželo. Návrh byl konkrétní, montáž rychlá, výsledek měřitelný. RT60 jsme srazili z 1,2 na 0,3 sekundy.</p>
+        <div class="testimonial__foot">
+          <div style="display:flex;gap:16px;align-items:center;">
+            <div class="testimonial__avatar">MK</div>
+            <div class="testimonial__author">
+              <strong>Martina Kratochvílová</strong>
+              <span>SoundLab Studio · Brno</span>
+            </div>
+          </div>
+          <span class="testimonial__rating">★★★★★</span>
+        </div>
+      </article>
+
+      <article class="testimonial reveal" data-delay="2">
+        <p class="testimonial__quote">Profesionální od první návštěvy. Diagnostika ukázala, kde je skutečný problém — netěsnosti VZT. Místo zbytečné rekonstrukce stěn jsme vyřešili strop a potrubí.</p>
+        <div class="testimonial__foot">
+          <div style="display:flex;gap:16px;align-items:center;">
+            <div class="testimonial__avatar">TP</div>
+            <div class="testimonial__author">
+              <strong>Tomáš Plánička</strong>
+              <span>FM Manager · Generali ČP</span>
+            </div>
+          </div>
+          <span class="testimonial__rating">★★★★★</span>
+        </div>
+      </article>
+
+      <article class="testimonial reveal" data-delay="3">
+        <p class="testimonial__quote">Restaurace s 80 místy bez akustiky byla peklo. SILENTUM přijel, změřil, navrhl, smontoval — 6 dní. Hosté chválí, personál se nepřekřikuje. Návratnost dokonalá.</p>
+        <div class="testimonial__foot">
+          <div style="display:flex;gap:16px;align-items:center;">
+            <div class="testimonial__avatar">DV</div>
+            <div class="testimonial__author">
+              <strong>David Veselý</strong>
+              <span>Bistro Pravda · Vinohrady</span>
+            </div>
+          </div>
+          <span class="testimonial__rating">★★★★★</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FAQ ============================= -->
+<section id="faq" style="background: linear-gradient(180deg, transparent, rgba(255,255,255,0.015));">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow reveal">Časté otázky</span>
+        <h2 class="reveal" data-delay="1">Než nás <span class="serif">budete kontaktovat.</span></h2>
+      </div>
+      <p class="lead section-head__lead reveal" data-delay="2">Stručné odpovědi na to, co nejčastěji slýcháme. Pokud nenajdete svou otázku, napište nám.</p>
+    </div>
+
+    <div class="faq reveal">
+      <div class="faq__item open">
+        <div class="faq__head">
+          <h3 class="faq__q">Co znamená R'w a NRC v technických listech?</h3>
+          <span class="faq__toggle">+</span>
+        </div>
+        <div class="faq__body">
+          <p class="faq__a">R'w je vážená neprůzvučnost — kolik decibelů konstrukce odhluční mezi dvěma místnostmi. NRC (Noise Reduction Coefficient) měří, kolik zvuku panel pohltí v rozsahu 250–2000 Hz. Hodnoty 0–1, kde 1 = pohltí vše. Více v glosáři.</p>
+        </div>
+      </div>
+      <div class="faq__item">
+        <div class="faq__head">
+          <h3 class="faq__q">Kolik bude stát odhlučnění mého bytu?</h3>
+          <span class="faq__toggle">+</span>
+        </div>
+        <div class="faq__body">
+          <p class="faq__a">Záleží na cíli a frekvenci hluku. Pro orientaci: stěnové předstěny mezi byty od 4 500 Kč/m² včetně montáže. Bezplatný akustický audit s konkrétní kalkulací uděláme do 48 hodin od poptávky.</p>
+        </div>
+      </div>
+      <div class="faq__item">
+        <div class="faq__head">
+          <h3 class="faq__q">Kolik místa mi izolace ubere?</h3>
+          <span class="faq__toggle">+</span>
+        </div>
+        <div class="faq__body">
+          <p class="faq__a">Předstěna typicky 50–80 mm. Stropní podhled 60–120 mm. Volně zavěšené ostrovy 40 mm + závěs. Pro malé místnosti máme tenké high‑end systémy 30 mm s útlumem až 38 dB.</p>
+        </div>
+      </div>
+      <div class="faq__item">
+        <div class="faq__head">
+          <h3 class="faq__q">Jak rychle to celé proběhne?</h3>
+          <span class="faq__toggle">+</span>
+        </div>
+        <div class="faq__body">
+          <p class="faq__a">Audit 1 den. Projekt 3–5 dní. Realizace: byt 3–7 dní, restaurace 5–10 dní, kanceláře 7–14 dní. Pracujeme po etapách bez nutnosti opustit prostor.</p>
+        </div>
+      </div>
+      <div class="faq__item">
+        <div class="faq__head">
+          <h3 class="faq__q">Garantujete reálně dosažený útlum?</h3>
+          <span class="faq__toggle">+</span>
+        </div>
+        <div class="faq__body">
+          <p class="faq__a">Ano. Po realizaci provedeme kontrolní měření a předáme protokol. Pokud naměřené hodnoty nesedí na projekt, dopracujeme zdarma. Záruka 10 let na funkčnost systému.</p>
+        </div>
+      </div>
+      <div class="faq__item">
+        <div class="faq__head">
+          <h3 class="faq__q">Pracujete po celé ČR?</h3>
+          <span class="faq__toggle">+</span>
+        </div>
+        <div class="faq__body">
+          <p class="faq__a">Hlavní oblast: Praha a Středočeský kraj. Větší projekty po celé ČR + Slovensko. Pro Moravu máme partnerský tým v Brně.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= KONTAKT ============================= -->
+<section id="kontakt">
+  <div class="container">
+    <div class="contact reveal">
+      <div class="contact__info">
+        <span class="eyebrow">Nezávazná konzultace</span>
+        <h2>Vrátíme vám <span class="serif">ticho.</span></h2>
+        <p class="lead" style="font-size:16px;">Pošlete nám pár vět o vašem prostoru a problému. Do 24 hodin se ozveme s návrhem dalšího postupu — typicky bezplatným měřením na místě.</p>
+
+        <div class="contact__detail">
+          <span class="mono">Telefon</span>
+          <strong>+420 777 123 456</strong>
+        </div>
+        <div class="contact__detail">
+          <span class="mono">E‑mail</span>
+          <strong>audit@silentum.cz</strong>
+        </div>
+        <div class="contact__detail">
+          <span class="mono">Studio Praha</span>
+          <strong>Bubenská 1477/1, Praha 7</strong>
+        </div>
+
+        <div style="display:flex;gap:12px;margin-top:8px;">
+          <a href="#" class="btn btn--primary">Poslat poptávku <span class="arrow">→</span></a>
+          <a href="tel:+420777123456" class="btn btn--ghost">Zavolat</a>
+        </div>
+      </div>
+      <div class="contact__map" aria-label="Mapa — Bubenská 1, Praha 7">
+        <div class="contact__pin">
+          <span class="contact__pin-label">Studio SILENTUM</span>
+          <span class="contact__pin-dot"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FOOTER ============================= -->
+<footer>
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a href="index.html" class="logo">SILENTUM<span class="dot">°</span></a>
+        <p class="footer__about">Akustická řešení pro byty, kanceláře, gastronomii, studia a průmysl. Měříme, navrhujeme, montujeme — vlastním týmem od roku 2008.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Služby</h4>
+        <ul>
+          <li><a href="#sluzby">Akustický audit</a></li>
+          <li><a href="#sluzby">Návrh a projekt</a></li>
+          <li><a href="#sluzby">Montáž na klíč</a></li>
+          <li><a href="#sluzby">Měření hluku</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Produkty</h4>
+        <ul>
+          <li><a href="katalog.html">Stěnové panely</a></li>
+          <li><a href="katalog.html">Stropní systémy</a></li>
+          <li><a href="katalog.html">Podlahové izolace</a></li>
+          <li><a href="katalog.html">VZT izolace</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Společnost</h4>
+        <ul>
+          <li><a href="galerie.html">Realizace</a></li>
+          <li><a href="#reference">Reference</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2008—2026 SILENTUM° · IČ 28471234</span>
+      <span>Made with care · Praha</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
